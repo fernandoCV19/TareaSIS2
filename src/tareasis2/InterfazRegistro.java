@@ -246,9 +246,11 @@ panel2 = new tareasis2.panel();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Desde este boton recibes todos los datos 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String textoCodigoSis=codigoSis.getText();
+        String textoCarrera=carrera.getText();
+        String textoCarnetIdentidad=carnetIdentidad.getText();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void carnetIdentidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carnetIdentidadActionPerformed
