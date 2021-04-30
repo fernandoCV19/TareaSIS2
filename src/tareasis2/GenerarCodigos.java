@@ -49,7 +49,7 @@ public class GenerarCodigos extends Frame {
      
       String mayusculasCarrera=carrera.toUpperCase ();
         FlowLayout flow=new FlowLayout();
-        setLayout(flow); 
+        setLayout(flow);
         setTitle("generacion de codigos"); 
         setSize(400, 350);        
         setVisible(true); 

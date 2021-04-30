@@ -23,7 +23,7 @@ public class InterfazNavegacion extends javax.swing.JFrame {
         this.setSize(new Dimension(700, 700));        
         this.setLocationRelativeTo(null);
         
-                panel1 = new tareasis2.panel();
+        panel1 = new tareasis2.panel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();

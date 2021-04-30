@@ -26,7 +26,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         //-----------------------------------------
-panel2 = new tareasis2.panel();
+  panel2 = new tareasis2.panel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -37,6 +37,7 @@ panel2 = new tareasis2.panel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 1, 1));
@@ -103,7 +104,7 @@ panel2 = new tareasis2.panel();
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(jButton1)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,6 +153,7 @@ panel2 = new tareasis2.panel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 1, 1));
