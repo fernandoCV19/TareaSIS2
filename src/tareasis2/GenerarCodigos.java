@@ -2,14 +2,18 @@
 package tareasis2;
 import java.awt.*;
 import java.util.ArrayList;
-
-
-
-public class GenerarCodigos extends Frame {
-  
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.*;
  
+
+
+public class GenerarCodigos extends JFrame {
+  
+     private FlowLayout flow=new FlowLayout();
      private ArrayList<String>listaCodigos  = new  ArrayList() ;
-    
+     
     public  void principal() {
         Fecha fecha =new Fecha (2,10,00);
         int ci =5308400;
@@ -23,7 +27,6 @@ public class GenerarCodigos extends Frame {
     public  String generarCodigo(Fecha fecha, String nombre,String  apellido){
        int numero = (int)(Math.random()*(90-65+1)+65);
        int numero2 = (int)(Math.random()*(90-65+1)+65);
-       
        String mayusculasApellido=apellido.toUpperCase ();
        int numeroRamdom = (int)(Math.random()*(apellido.length()-1+1)+0);
        char primerDigito=mayusculasApellido.charAt(numeroRamdom);
@@ -48,20 +51,21 @@ public class GenerarCodigos extends Frame {
     public  void  mostrar(Fecha fecha,String nombre,String apellido,String gestion,String periodo,String carrera){
      
       String mayusculasCarrera=carrera.toUpperCase ();
-     
-      
-        setLayout(new FlowLayout()); 
+        GenerarCodigos codigos=new GenerarCodigos();
+        codigos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        this.setLocationRelativeTo(null);
+        setLayout(flow);
         setTitle("generacion de codigos"); 
-        setSize(300, 350);        
+        setSize(300,300);        
         setVisible(true); 
         add(new Label("CODIGOS DE ACCESO\n"));
-        add(new Label("CARRERA: LICENCIATURA EN "+mayusculasCarrera));
+        add(new Label("CARRERA: LICENCIATURA EN "+mayusculasCarrera+"\n"));
         add(new Label("GESTIÓN: "+periodo +"/"+gestion));
-        
         for (int i =1;i<=5;i++){
   
         String codigo=generarCodigo( fecha,  nombre, apellido);
-        add(new Label("COD. DE ACCESO "+i+": "+codigo));
+        add(new Label("COD. DE ACCESO "+i+": "+codigo+"\n"));
         listaCodigos.add(codigo);
         }
      
@@ -71,6 +75,7 @@ public class GenerarCodigos extends Frame {
        GenerarCodigos gc= new GenerarCodigos(); 
        gc.principal();
     }
+
 }
     
     
