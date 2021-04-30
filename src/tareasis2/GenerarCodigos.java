@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class GenerarCodigos extends Frame {
   
-    private Button btn1;
-     private ArrayList<String>lista  = new  ArrayList() ;
+ 
+     private ArrayList<String>listaCodigos  = new  ArrayList() ;
     
     public  void principal() {
         Fecha fecha =new Fecha (2,10,00);
@@ -62,7 +62,7 @@ public class GenerarCodigos extends Frame {
   
         String codigo=generarCodigo( fecha,  nombre, apellido);
         add(new Label("COD. DE ACCESO "+i+": "+codigo));
-        lista.add(codigo);
+        listaCodigos.add(codigo);
         }
      
         
