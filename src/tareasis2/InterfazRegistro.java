@@ -22,7 +22,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
         
         this.setDefaultCloseOperation(InterfazRegistro.EXIT_ON_CLOSE);
         this.setTitle("Ventana con Imagen");
-        this.setSize(new Dimension(700, 700));        
+        this.setSize(new Dimension(650,650));        
         this.setLocationRelativeTo(null);
         
         //-----------------------------------------
@@ -218,7 +218,7 @@ panel2 = new tareasis2.panel();
                     .addGroup(panel2Layout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(jButton1)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
