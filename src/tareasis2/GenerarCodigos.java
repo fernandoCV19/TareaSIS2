@@ -48,11 +48,10 @@ public class GenerarCodigos extends Frame {
     public  void  mostrar(Fecha fecha,String nombre,String apellido,String gestion,String periodo,String carrera){
      
       String mayusculasCarrera=carrera.toUpperCase ();
-     
-      
-        setLayout(new FlowLayout()); 
+        FlowLayout flow=new FlowLayout();
+        setLayout(flow); 
         setTitle("generacion de codigos"); 
-        setSize(300, 350);        
+        setSize(400, 350);        
         setVisible(true); 
         add(new Label("CODIGOS DE ACCESO\n"));
         add(new Label("CARRERA: LICENCIATURA EN "+mayusculasCarrera));
