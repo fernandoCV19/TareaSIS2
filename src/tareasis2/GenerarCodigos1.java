@@ -33,6 +33,7 @@ public class GenerarCodigos1 extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
