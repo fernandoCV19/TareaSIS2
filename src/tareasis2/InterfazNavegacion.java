@@ -23,6 +23,7 @@ public class InterfazNavegacion extends javax.swing.JFrame {
         this.setSize(new Dimension(700, 700));        
         this.setLocationRelativeTo(null);
         
+
         panel1 = new tareasis2.panel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -31,6 +32,7 @@ public class InterfazNavegacion extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Menú");
@@ -113,6 +115,7 @@ public class InterfazNavegacion extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Menú");
