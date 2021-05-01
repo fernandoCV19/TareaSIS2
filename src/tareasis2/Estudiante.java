@@ -8,7 +8,7 @@ public class Estudiante {
     private String nombres;
     private String apellidos;
     private String carrera;
-    private int ci;
+    private final int ci;
     private Date fechaNacimiento;
     private String ciudadNacimiento;
     private int noCertificadoNacimiento;
@@ -30,5 +30,79 @@ public class Estudiante {
         this.habilitado = habilitado;
     }
 
-    
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setCiudadNacimiento(String ciudadNacimiento) {
+        this.ciudadNacimiento = ciudadNacimiento;
+    }
+
+    public void setNoCertificadoNacimiento(int noCertificadoNacimiento) {
+        this.noCertificadoNacimiento = noCertificadoNacimiento;
+    }
+
+    public void setNoLicenciaConducir(int noLicenciaConducir) {
+        this.noLicenciaConducir = noLicenciaConducir;
+    }
+
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
+    }
+
+    public int getCod_sis() {
+        return cod_sis;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public int getCi() {
+        return ci;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public String getCiudadNacimiento() {
+        return ciudadNacimiento;
+    }
+
+    public int getNoCertificadoNacimiento() {
+        return noCertificadoNacimiento;
+    }
+
+    public int getNoPasaporte() {
+        return noPasaporte;
+    }
+
+    public int getNoLicenciaConducir() {
+        return noLicenciaConducir;
+    }
+
+    public boolean isHabilitado() {
+        return habilitado;
+    }
 }
