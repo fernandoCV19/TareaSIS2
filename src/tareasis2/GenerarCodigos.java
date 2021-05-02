@@ -14,6 +14,10 @@ public class GenerarCodigos extends JFrame {
      private FlowLayout flow=new FlowLayout();
      private ArrayList<String>listaCodigos  = new  ArrayList() ;
      
+     public GenerarCodigos(){
+         principal();
+     }
+     
     public  void principal() {
         Fecha fecha =new Fecha (2,10,00);
         int ci =5308400;
@@ -67,13 +71,8 @@ public class GenerarCodigos extends JFrame {
         String codigo=generarCodigo( fecha,  nombre, apellido);
         add(new Label("COD. DE ACCESO "+i+": "+codigo+"\n"));
         listaCodigos.add(codigo);
-        }
-     
-        
-    }
-     public static void main(String[] args) {
-       GenerarCodigos gc= new GenerarCodigos(); 
-       gc.principal();
+        }   
+        this.setVisible(true);
     }
 
 }

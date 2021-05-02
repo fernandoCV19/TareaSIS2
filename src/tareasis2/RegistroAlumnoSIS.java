@@ -5,9 +5,12 @@
  */
 package tareasis2;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -25,11 +28,14 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
     private JTextField primerNombre;
     private JButton registrar;
     private JTextField segundoNombre;
-    
-    public RegistroAlumnoSIS() {
+    private JButton regresar;
+    private JFrame ventana;
+
+    public RegistroAlumnoSIS(JFrame ventana) {
+        this.ventana = ventana;
         iniciarInterfaz();
     }
-    
+
     private void iniciarInterfaz() {
 
         JLabel linea1 = new JLabel();
@@ -100,14 +106,14 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
 
         this.ciudadNacimiento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         this.ciudadNacimiento.setMaximumRowCount(9);
-        this.ciudadNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PANDO", "BENI", "SANTA CRUZ", "COCHABAMBA", "SUCRE", "TARIJA", "LA PAZ", "ORURO", "POTOSI" }));
+        this.ciudadNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"PANDO", "BENI", "SANTA CRUZ", "COCHABAMBA", "SUCRE", "TARIJA", "LA PAZ", "ORURO", "POTOSI"}));
 
         linea7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         linea7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         linea7.setText("APELLIDO PATERNO:");
         linea7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        this.ciDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CH", "LP", "CB", "OR", "PT", "TJ", "SC", "BE", "PD" }));
+        this.ciDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"CH", "LP", "CB", "OR", "PT", "TJ", "SC", "BE", "PD"}));
 
         linea8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         linea8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -143,7 +149,7 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
         this.apellidoPaterno.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         this.carrera.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        this.carrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LICENCIATURA DIDACTICA MATEMATICA", "LICENCIATURA EN BIOLOGIA", "LICENCIATURA EN DIDACTICA DE LA FISICA", "LICENCIATURA EN FISICA", "LICENCIATURA EN ING. ELECTROMECANICA", "LICENCIATURA EN INGENIERIA CIVIL (NUEVO)", "LICENCIATURA EN INGENIERIA DE ALIMENTOS", "LICENCIATURA EN INGENIERIA DE SISTEMAS", "LICENCIATURA EN INGENIERIA ELECTRICA", "LICENCIATURA EN INGENIERIA ELECTRONICA", "LICENCIATURA EN INGENIERIA INDUSTRIAL", "LICENCIATURA EN INGENIERIA INFORMATICA", "LICENCIATURA EN INGENIERIA MATEMATICA", "LICENCIATURA EN INGENIERIA MECANICA", "LICENCIATURA EN INGENIERIA QUIMICA", "LICENCIATURA EN MATEMATICAS", "LICENCIATURA EN QUIMICA" }));
+        this.carrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"LICENCIATURA DIDACTICA MATEMATICA", "LICENCIATURA EN BIOLOGIA", "LICENCIATURA EN DIDACTICA DE LA FISICA", "LICENCIATURA EN FISICA", "LICENCIATURA EN ING. ELECTROMECANICA", "LICENCIATURA EN INGENIERIA CIVIL (NUEVO)", "LICENCIATURA EN INGENIERIA DE ALIMENTOS", "LICENCIATURA EN INGENIERIA DE SISTEMAS", "LICENCIATURA EN INGENIERIA ELECTRICA", "LICENCIATURA EN INGENIERIA ELECTRONICA", "LICENCIATURA EN INGENIERIA INDUSTRIAL", "LICENCIATURA EN INGENIERIA INFORMATICA", "LICENCIATURA EN INGENIERIA MATEMATICA", "LICENCIATURA EN INGENIERIA MECANICA", "LICENCIATURA EN INGENIERIA QUIMICA", "LICENCIATURA EN MATEMATICAS", "LICENCIATURA EN QUIMICA"}));
 
         this.registrar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         this.registrar.setText("REGISTRAR");
@@ -153,120 +159,131 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
             }
         });
 
+        regresar = new JButton("<");
+        regresar.setBounds(5, 5, 50, 40);
+        regresar.setFont(new Font("Tahoma", 0, 18));
+        regresar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                InterfazNavegacion interfazNavegacion = new InterfazNavegacion();
+                ventana.dispose();
+            }
+        });
+        
+        this.add(regresar);
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(linea7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(69, 69, 69))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(linea3, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(linea2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(linea4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(this.ci))
-                            .addComponent(this.primerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(this.apellidoPaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(this.ciDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(linea8)
-                                .addGap(26, 26, 26)
-                                .addComponent(linea9))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(74, 74, 74)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(linea5, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(this.segundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(this.apellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(linea12)
-                        .addGap(18, 18, 18)
-                        .addComponent(this.carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(linea6, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(this.ciudadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(this.diaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(linea11)
-                        .addGap(28, 28, 28)
-                        .addComponent(this.mesNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(linea10)
-                        .addGap(18, 18, 18)
-                        .addComponent(this.anioNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(142, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(373, 373, 373)
-                .addComponent(linea1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(this.registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(518, 518, 518))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(linea7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(69, 69, 69))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(linea3, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(linea2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                                .addComponent(linea4)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(this.ci))
+                                                        .addComponent(this.primerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(this.apellidoPaterno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(this.ciDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(66, 66, 66)
+                                                                .addComponent(linea8)
+                                                                .addGap(26, 26, 26)
+                                                                .addComponent(linea9))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGap(74, 74, 74)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(linea5, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(this.segundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(this.apellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(linea12)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(this.carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(32, 32, 32)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(linea6, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(this.ciudadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(this.diaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(linea11)
+                                                .addGap(28, 28, 28)
+                                                .addComponent(this.mesNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(26, 26, 26)
+                                                .addComponent(linea10)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(this.anioNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(142, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(373, 373, 373)
+                                .addComponent(linea1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(this.registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(518, 518, 518))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(linea1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(linea2)
-                    .addComponent(linea3)
-                    .addComponent(linea6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(this.segundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(this.primerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(this.ciudadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(linea5)
-                    .addComponent(linea7))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(this.apellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(this.apellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(linea4)
-                        .addComponent(this.ci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(this.ciDepartamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(linea8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(linea9)
-                        .addComponent(linea10)
-                        .addComponent(linea11)
-                        .addComponent(this.anioNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(this.diaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(this.mesNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(linea12)
-                    .addComponent(this.carrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(this.registrar)
-                .addGap(23, 23, 23))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(linea1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(linea2)
+                                        .addComponent(linea3)
+                                        .addComponent(linea6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(this.segundoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(this.primerNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(this.ciudadNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(linea5)
+                                        .addComponent(linea7))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(this.apellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(this.apellidoPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(linea4)
+                                                .addComponent(this.ci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(this.ciDepartamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(linea8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(linea9)
+                                                .addComponent(linea10)
+                                                .addComponent(linea11)
+                                                .addComponent(this.anioNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(this.diaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(this.mesNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(linea12)
+                                        .addComponent(this.carrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(39, 39, 39)
+                                .addComponent(this.registrar)
+                                .addGap(23, 23, 23))
         );
     }// </editor-fold>                        
 
-    private void registrarActionPerformed(ActionEvent evt) {                                          
+    private void registrarActionPerformed(ActionEvent evt) {
         String primerNombre = this.primerNombre.getText();
         String segundoNombre = this.segundoNombre.getText();
         String apellidoPaterno = this.apellidoPaterno.getText();
@@ -278,5 +295,5 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
         int mesNacimiento = Integer.parseInt(this.mesNacimiento.getText());
         int anioNacimiento = Integer.parseInt(this.anioNacimiento.getText());
         String carrera = this.carrera.getSelectedItem().toString();
-    }            
+    }
 }

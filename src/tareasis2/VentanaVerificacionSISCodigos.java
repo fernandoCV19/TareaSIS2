@@ -19,7 +19,7 @@ import javax.swing.JFrame;
  *
  * @author Windows 10
  */
-public class VentanaVerificacionSIS extends JPanel {
+public class VentanaVerificacionSISCodigos extends JPanel {
 
     private JTextField codigoSIS;
     private JTextField diaNacimiento;
@@ -29,7 +29,7 @@ public class VentanaVerificacionSIS extends JPanel {
     private JButton regresar;
     private JFrame ventana;
 
-    public VentanaVerificacionSIS(JFrame ventana) {
+    public VentanaVerificacionSISCodigos(JFrame ventana) {
         this.ventana = ventana;
         iniciarComponentes();
     }
@@ -81,12 +81,7 @@ public class VentanaVerificacionSIS extends JPanel {
         ingresar.setFont(font);
         ingresar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                JFrame ventan = new JFrame();
-                ventan.getContentPane().add(new VentanaAgregarDocumentos(ventan));
-                ventan.setSize(500, 600);
-                ventan.setLocationRelativeTo(null);
-                ventan.setDefaultCloseOperation(InterfazRegistro.EXIT_ON_CLOSE);
-                ventan.setVisible(true);
+                GenerarCodigos generarCodigos = new GenerarCodigos();
                 ventana.dispose();
             }
         });
@@ -100,6 +95,7 @@ public class VentanaVerificacionSIS extends JPanel {
                 ventana.dispose();
             }
         });
+
         this.add(titulo);
         this.add(codigoSISLabel);
         this.add(codigoSIS);

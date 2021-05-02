@@ -11,6 +11,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 /**
  *
  * @author Windows 10
@@ -22,8 +23,10 @@ public class VentanaAgregarDocumentos extends JPanel
     private JTextField licConducir;
     private JButton anadir;
     private JButton regresar;
+    private JFrame ventana;
     
-    public VentanaAgregarDocumentos(){
+    public VentanaAgregarDocumentos(JFrame ventana){
+        this.ventana = ventana;
         iniciarComponentes();
     }
 
@@ -74,7 +77,8 @@ public class VentanaAgregarDocumentos extends JPanel
         regresar.setFont(new Font("Tahoma", 0, 18));
         regresar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) { 
-            
+                InterfazNavegacion interfazRegistro = new InterfazNavegacion();
+                ventana.dispose();
             }
         });
 
