@@ -152,6 +152,7 @@ public class InterfazRegistro extends javax.swing.JFrame {
         pack();
         this.setVisible(true);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

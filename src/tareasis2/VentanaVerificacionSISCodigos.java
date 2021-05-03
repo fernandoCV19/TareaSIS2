@@ -88,6 +88,7 @@ public class VentanaVerificacionSISCodigos extends JPanel {
             public void actionPerformed(ActionEvent evt) {
                 //GenerarCodigos generarCodigos = new GenerarCodigos();
                 ingresar();
+                VentanaGeneradorDeCodigos generarCodigos = new VentanaGeneradorDeCodigos();
                 ventana.dispose();
             }
         });
