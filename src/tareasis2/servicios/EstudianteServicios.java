@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import tareasis2.Conexion;
 import tareasis2.Fecha;
-import tareasis2.GenerarCodigos;
+import tareasis2.GeneradorCodigos;
 import tareasis2.models.Codigo;
 import tareasis2.models.Estudiante;
 
@@ -48,7 +48,7 @@ public class EstudianteServicios {
             //System.out.println(resultado.getString("carrera"));
             if(ci == resultado.getInt("ci") && carrera == resultado.getString("carrera")){ 
                 habilitado = true;
-                GenerarCodigos generador = new GenerarCodigos();
+                GeneradorCodigos generador = new GeneradorCodigos();
                 ArrayList<String> lista = generador.getListaCodigos(new Fecha(d.getDay(), d.getMonth(), d.getYear()), resultado.getString("nombres"), resultado.getString("apellidos"));
                 CodigoServicios cod = new CodigoServicios();
                 cod.guardar(Conexion.obtener(), new Codigo(lista.get(0),lista.get(1),lista.get(2),lista.get(3),lista.get(4), cod_sis));

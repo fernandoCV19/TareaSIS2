@@ -12,6 +12,9 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import tareasis2.servicios.EstudianteServicios;
@@ -100,29 +103,35 @@ public class VentanaAgregarDocumentos extends JPanel {
     }
 
     public void registrar() {
-        //sis,na,pas,lic   setDocumentos
-        int nac = 0;
-        int pas = 0;
-        int licCon = 0;
-
-        if (!certNacimiento.getText().equals("")) {
-            nac = Integer.parseInt(certNacimiento.getText());
-        }
-
-        if (!pasaporte.getText().equals("")) {
-            pas = Integer.parseInt(pasaporte.getText());
-        }
-
-        if (!licConducir.getText().equals("")) {
-            licCon = Integer.parseInt(licConducir.getText());
-        }
-        EstudianteServicios es = new EstudianteServicios();
-
-        
-        if (es.setDocumentos(codSIS, nac, pas, licCon)) {
-            JOptionPane.showMessageDialog(this, "Los documentos fueron registrados");
-        } else {
-            JOptionPane.showMessageDialog(this, "Los documentos no fueron registrados");
+        try {
+            //sis,na,pas,lic   setDocumentos
+            int nac = 0;
+            int pas = 0;
+            int licCon = 0;
+            
+            if (!certNacimiento.getText().equals("")) {
+                nac = Integer.parseInt(certNacimiento.getText());
+            }
+            
+            if (!pasaporte.getText().equals("")) {
+                pas = Integer.parseInt(pasaporte.getText());
+            }
+            
+            if (!licConducir.getText().equals("")) {
+                licCon = Integer.parseInt(licConducir.getText());
+            }
+            EstudianteServicios es = new EstudianteServicios();
+            
+            
+            if (es.setDocumentos(Conexion.obtener(),codSIS, nac, pas, licCon)) {
+                JOptionPane.showMessageDialog(this, "Los documentos fueron registrados");
+            } else {
+                JOptionPane.showMessageDialog(this, "Los documentos no fueron registrados");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(VentanaAgregarDocumentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(VentanaAgregarDocumentos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
