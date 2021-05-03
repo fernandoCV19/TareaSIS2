@@ -11,8 +11,9 @@ public class main {
         Conexion.obtener();
         /*Estudiante est;
         est = new Estudiante (201900520, "Dilan Alejandro", "Antezana Serrano", "Informatica", 9364973,
-                new Date(2001, 3, 20), 123, 345, 567, false);
+                new Date(2001, 3, 20), 123, 345, 567, false);*/
         EstudianteServicios es = new EstudianteServicios();
-        es.guardar(Conexion.obtener(), est);*/
+        //es.guardar(Conexion.obtener(), est);
+        es.habilitar(Conexion.obtener(), 201900520, 9364963, "Informatica");
     }
 }
