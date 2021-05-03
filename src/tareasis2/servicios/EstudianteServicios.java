@@ -3,7 +3,7 @@ package tareasis2.servicios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import tareasis2.Estudiante;
+import tareasis2.models.Estudiante;
 
 public class EstudianteServicios {
     private final String tabla = "estudiante";
@@ -11,7 +11,7 @@ public class EstudianteServicios {
       try{
          PreparedStatement consulta;
          consulta = conexion.prepareStatement("INSERT INTO " + this.tabla + "(cod_sis, nombres, apellidos,"+
-                 "carrera, ci, fechaNacimiento, ciudadNacimiento, noCertificadoNacimiento, noPasaporte,"+
+                 "carrera, ci, fechaNacimiento, noCertificadoNacimiento, noPasaporte,"+
                  "habilitado, noLicenciaConducir) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             consulta.setInt(1, est.getCod_sis());
             consulta.setString(2, est.getNombres());
@@ -19,7 +19,6 @@ public class EstudianteServicios {
             consulta.setString(4, est.getCarrera());
             consulta.setInt(5, est.getCi());
             consulta.setDate(6, est.getFechaNacimiento());
-            consulta.setString(7, est.getCiudadNacimiento());
             consulta.setInt(8, est.getNoCertificadoNacimiento());
             consulta.setInt(9, est.getNoPasaporte());
             consulta.setBoolean(10, est.isHabilitado());
