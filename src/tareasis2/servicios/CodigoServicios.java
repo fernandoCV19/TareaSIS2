@@ -9,7 +9,7 @@ import tareasis2.models.Codigo;
 import tareasis2.models.Estudiante;
 
 public class CodigoServicios {
-   private final String tabla = "estudiante";
+   private final String tabla = "codigo";
    public void guardar(Connection conexion, Codigo cod) throws SQLException{
       try{
          PreparedStatement consulta;

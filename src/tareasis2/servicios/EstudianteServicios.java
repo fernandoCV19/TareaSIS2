@@ -1,8 +1,12 @@
 package tareasis2.servicios;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import tareasis2.Fecha;
+import tareasis2.GenerarCodigos;
 import tareasis2.models.Estudiante;
 
 public class EstudianteServicios {
@@ -28,5 +32,33 @@ public class EstudianteServicios {
       }catch(SQLException ex){
          throw new SQLException(ex);
       }
+   }
+   public boolean habilitar(Connection conexion, int cod_sis, int ci, String carrera) throws SQLException {
+      boolean habilitado = false;
+      Estudiante est = null;
+      Fecha f = null;
+      String carer;
+      int carnet;
+      
+      try{
+         PreparedStatement consulta = conexion.prepareStatement("SELECT cod_sis, ci, carrera, fechaNacimiento, nombres, apellidos FROM " + this.tabla + " WHERE cod_sis = ?" );
+         consulta.setInt(1, cod_sis);
+         ResultSet resultado = consulta.executeQuery();
+         if(resultado.next()){
+             Date d = resultado.getDate("fechaNacimiento");
+            f = new Fecha(d.getDay(), d.getMonth(), d.getYear());
+            carer = resultado.getString("carrera");
+            carnet = resultado.getInt("ci");
+            System.out.println(resultado.getString("ci"));
+            System.out.println(resultado.getString("carrera"));
+         }
+        
+         
+         //GenerarCodigos generador = new GenerarCodigos();
+         //generador.getListaCodigos(Fecha fecha_naci, nombre, apellidos);
+      }catch(SQLException ex){
+         throw new SQLException(ex);
+      }
+      return habilitado;
    }
 }
