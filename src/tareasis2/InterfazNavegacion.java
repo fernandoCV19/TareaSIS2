@@ -222,7 +222,7 @@ public class InterfazNavegacion extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         JFrame ventana = new JFrame();
         ventana.getContentPane().add(new RegistroAlumnoSIS(ventana));
-        ventana.setSize(1300, 800);
+        ventana.setSize(1100, 800);
         ventana.setLocationRelativeTo(null);
         ventana.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import tareasis2.models.Estudiante;
 import tareasis2.servicios.EstudianteServicios;
@@ -69,7 +70,7 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
         this.carrera = new JComboBox<>();
         this.registrar = new JButton();
 
-        setPreferredSize(new java.awt.Dimension(1300, 800));
+        setPreferredSize(new java.awt.Dimension(1100, 800));
 
         linea1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         linea1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -311,6 +312,7 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
         
         try {
             estudiantesServicios.guardar(Conexion.obtener(), estudiante);
+            JOptionPane.showMessageDialog(this, "Estudiante registrado");
         } catch (SQLException ex) {
             Logger.getLogger(RegistroAlumnoSIS.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
