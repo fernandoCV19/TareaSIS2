@@ -10,7 +10,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import tareasis2.servicios.EstudianteServicios;
 
 /**
  *
@@ -265,9 +270,23 @@ public class InterfazRegistro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //Desde este boton recibes todos los datos 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String textoCodigoSis = codigoSis.getText();
-        String textoCarrera = carrera.getText();
-        String textoCarnetIdentidad = carnetIdentidad.getText();
+        try {
+            String textoCodigoSis = codigoSis.getText();
+            String textoCarrera = carrera.getText().toUpperCase();
+            String textoCarnetIdentidad = carnetIdentidad.getText();
+            
+            EstudianteServicios estudianteServicios = new EstudianteServicios();
+            if(estudianteServicios.habilitar(Conexion.obtener(), Integer.parseInt(textoCodigoSis),Integer.parseInt(textoCarnetIdentidad), textoCarrera)){
+                JOptionPane.showMessageDialog(this, "Estudiante inscrito");
+            }else{
+                JOptionPane.showMessageDialog(this, "Estudiante no inscrito");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazRegistro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InterfazRegistro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void carnetIdentidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carnetIdentidadActionPerformed

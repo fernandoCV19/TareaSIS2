@@ -8,11 +8,17 @@ package tareasis2;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import tareasis2.models.Estudiante;
+import tareasis2.servicios.EstudianteServicios;
 
 public class RegistroAlumnoSIS extends javax.swing.JPanel {
 
@@ -295,5 +301,20 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
         int mesNacimiento = Integer.parseInt(this.mesNacimiento.getText());
         int anioNacimiento = Integer.parseInt(this.anioNacimiento.getText());
         String carrera = this.carrera.getSelectedItem().toString();
+        
+        Estudiante estudiante;
+        estudiante = new Estudiante(Integer.parseInt("2021"+diaNacimiento + anioNacimiento),primerNombre + " " + segundoNombre,
+                apellidoPaterno + " " + apellidoMaterno, carrera, Integer.parseInt(ci), new Date(anioNacimiento - 1900, mesNacimiento, diaNacimiento),
+                0, 0, 0, false);
+        
+        EstudianteServicios estudiantesServicios = new EstudianteServicios();
+        
+        try {
+            estudiantesServicios.guardar(Conexion.obtener(), estudiante);
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistroAlumnoSIS.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegistroAlumnoSIS.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

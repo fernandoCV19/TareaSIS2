@@ -13,7 +13,12 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import tareasis2.servicios.EstudianteServicios;
 
 /**
  *
@@ -81,13 +86,7 @@ public class VentanaVerificacionSIS extends JPanel {
         ingresar.setFont(font);
         ingresar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                JFrame ventan = new JFrame();
-                ventan.getContentPane().add(new VentanaAgregarDocumentos(ventan));
-                ventan.setSize(500, 600);
-                ventan.setLocationRelativeTo(null);
-                ventan.setDefaultCloseOperation(InterfazRegistro.EXIT_ON_CLOSE);
-                ventan.setVisible(true);
-                ventana.dispose();
+                ingresar();
             }
         });
 
@@ -111,5 +110,35 @@ public class VentanaVerificacionSIS extends JPanel {
         this.add(anioNacimiento);
         this.add(ingresar);
         this.add(regresar);
+    }
+
+    public void ingresar() {
+        int codSIS = Integer.parseInt(this.codigoSIS.getText());
+        int dia = Integer.parseInt(this.diaNacimiento.getText());
+        int mes = Integer.parseInt(this.mesNacimiento.getText());
+        int anio = Integer.parseInt(this.anioNacimiento.getText());
+        EstudianteServicios es = new EstudianteServicios();
+
+        try {
+            if (es.ingresarSistema(Conexion.obtener(), codSIS, dia, mes, anio)) {
+                if (es.verificarHabilitado(Conexion.obtener(), codSIS)) {
+
+                    JFrame ventan = new JFrame();
+                    ventan.getContentPane().add(new VentanaAgregarDocumentos(ventan, codSIS));
+                    ventan.setSize(500, 600);
+                    ventan.setLocationRelativeTo(null);
+                    ventan.setDefaultCloseOperation(InterfazRegistro.EXIT_ON_CLOSE);
+                    ventan.setVisible(true);
+                    ventana.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "El estudiante aun no fue habilitado");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Los datos son erroneos");
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(VentanaVerificacionSISCodigos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

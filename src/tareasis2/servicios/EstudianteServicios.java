@@ -3,6 +3,7 @@ package tareasis2.servicios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import tareasis2.models.Estudiante;
 
 public class EstudianteServicios {
@@ -29,4 +30,16 @@ public class EstudianteServicios {
          throw new SQLException(ex);
       }
    }
+   
+   public boolean habilitar(Connection conexion, int codigoSIS, int ci, String carrera) throws SQLException{
+       return true;
+   }
+
+    public boolean ingresarSistema(Connection obtener, int codSIS, int dia, int mes, int anio) {
+        return true;
+    }
+
+    public boolean verificarHabilitado(Connection obtener, int codSIS) {
+        return true; //To change body of generated methods, choose Tools | Templates.
+    }
 }
