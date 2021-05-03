@@ -70,7 +70,7 @@ public class RegistroAlumnoSIS extends javax.swing.JPanel {
         this.carrera = new JComboBox<>();
         this.registrar = new JButton();
 
-        setPreferredSize(new java.awt.Dimension(1100, 800));
+        setPreferredSize(new java.awt.Dimension(1300, 600));
 
         linea1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         linea1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
