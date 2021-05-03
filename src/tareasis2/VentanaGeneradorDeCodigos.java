@@ -70,19 +70,19 @@ public class VentanaGeneradorDeCodigos extends javax.swing.JFrame {
         jLabel8.setText("COD. DE ACCESO 5  :");
 
         jCod2Label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCod2Label.setText("jLabel10");
+        jCod2Label.setText(cod2);
 
         jCod3Label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCod3Label.setText("jLabel11");
+        jCod3Label.setText(cod3);
 
         jCod5Label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCod5Label.setText("jLabel13");
+        jCod5Label.setText(cod4);
 
         jCod4Label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCod4Label.setText("jLabel12");
+        jCod4Label.setText(cod5);
 
         jCod1Label.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jCod1Label.setText("jLabel9");
+        jCod1Label.setText(cod1);
 
         jButton1.setText("<");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
