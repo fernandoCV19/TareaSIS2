@@ -19,17 +19,17 @@ public class EstudianteServicios {
          PreparedStatement consulta;
          consulta = conexion.prepareStatement("INSERT INTO " + this.tabla + "(cod_sis, nombres, apellidos,"+
                  "carrera, ci, fechaNacimiento, noCertificadoNacimiento, noPasaporte,"+
-                 "habilitado, noLicenciaConducir) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                 "habilitado, noLicenciaConducir) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             consulta.setInt(1, est.getCod_sis());
             consulta.setString(2, est.getNombres());
             consulta.setString(3, est.getApellidos());
             consulta.setString(4, est.getCarrera());
             consulta.setInt(5, est.getCi());
             consulta.setDate(6, est.getFechaNacimiento());
-            consulta.setInt(8, est.getNoCertificadoNacimiento());
-            consulta.setInt(9, est.getNoPasaporte());
-            consulta.setBoolean(10, est.isHabilitado());
-            consulta.setInt(11, est.getNoLicenciaConducir());
+            consulta.setInt(7, est.getNoCertificadoNacimiento());
+            consulta.setInt(8, est.getNoPasaporte());
+            consulta.setBoolean(9, est.isHabilitado());
+            consulta.setInt(10, est.getNoLicenciaConducir());
             
             consulta.executeUpdate();
       }catch(SQLException ex){
@@ -45,16 +45,20 @@ public class EstudianteServicios {
          if(resultado.next()){
              Date d = resultado.getDate("fechaNacimiento");
             //System.out.println(resultado.getString("ci"));
-            //System.out.println(resultado.getString("carrera"));
-            if(ci == resultado.getInt("ci") && carrera == resultado.getString("carrera")){ 
+            
+            if(ci == resultado.getInt("ci") && carrera.contains(resultado.getString("carrera"))){ 
                 habilitado = true;
                 GeneradorCodigos generador = new GeneradorCodigos();
                 ArrayList<String> lista = generador.getListaCodigos(new Fecha(d.getDay(), d.getMonth(), d.getYear()), resultado.getString("nombres"), resultado.getString("apellidos"));
                 CodigoServicios cod = new CodigoServicios();
                 cod.guardar(Conexion.obtener(), new Codigo(lista.get(0),lista.get(1),lista.get(2),lista.get(3),lista.get(4), cod_sis));
-                consulta = conexion.prepareStatement("UPDATE " + this.tabla + " SET habilitado = ? WHERE id_tarea = ?");
-                consulta.setBoolean(1, true);
-                consulta.setInt(2,cod_sis);
+                
+                PreparedStatement consulta2 = conexion.prepareStatement("UPDATE estudiante SET habilitado = True WHERE cod_sis = ?");
+                consulta2.setInt(1,cod_sis);
+                consulta2.executeUpdate();
+                
+                //consulta2.setInt(1, 1);
+                //
             }
          }
       }catch(SQLException ex){
@@ -112,12 +116,12 @@ public class EstudianteServicios {
       boolean habilitado = false;
       try{
          PreparedStatement consulta = conexion.prepareStatement("UPDATE " + this.tabla + " SET noCertificadoNacimiento = ? , noPasaporte = ?," +
-                    "noLicenciaConducir = ? WHERE id_tarea = ?");
+                    "noLicenciaConducir = ? WHERE cod_sis = ?");
          consulta.setInt(1, noCertificadoNacimiento);
          consulta.setInt(2, noPasaporte);
          consulta.setInt(3, noLicencia);
          consulta.setInt(4, cod_sis);
-         ResultSet resultado = consulta.executeQuery();
+         consulta.executeUpdate();
          habilitado = true;  
       }catch(SQLException ex){
          throw new SQLException(ex);

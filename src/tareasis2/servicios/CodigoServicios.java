@@ -19,7 +19,7 @@ public class CodigoServicios {
             consulta.setString(3, cod.getCodigo3());
             consulta.setString(4, cod.getCodigo4());
             consulta.setString(5, cod.getCodigo5());
-            consulta.setInt(1, cod.getCod_sis());
+            consulta.setInt(6, cod.getCod_sis());
             
             consulta.executeUpdate();
       }catch(SQLException ex){
