@@ -88,7 +88,6 @@ public class VentanaVerificacionSISCodigos extends JPanel {
             public void actionPerformed(ActionEvent evt) {
                 //GenerarCodigos generarCodigos = new GenerarCodigos();
                 ingresar();
-                VentanaGeneradorDeCodigos generarCodigos = new VentanaGeneradorDeCodigos();
                 ventana.dispose();
             }
         });
@@ -127,7 +126,7 @@ public class VentanaVerificacionSISCodigos extends JPanel {
             if (es.ingresarSistema(Conexion.obtener(), codSIS, dia, mes, anio)) {
                 if (es.verificarHabilitado(Conexion.obtener(), codSIS)) {
                     //Llamar ventana para mostrar
-
+                    VentanaGeneradorDeCodigos vgdc = new VentanaGeneradorDeCodigos(new EstudianteServicios().getCodigos(Conexion.obtener(), codSIS));
                     ventana.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "El estudiante aun no fue habilitado");
